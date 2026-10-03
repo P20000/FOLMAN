@@ -3,9 +3,9 @@ requires = ["setuptools>=42", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "folder-manager"
-version = "0.0.1"
-description = "Small utilities to manage folders"
+name = "folman"
+version = "0.1.0"
+description = "FOLMAN - Fast, modular desktop file manager and automated folder organization engine"
 authors = [ { name = "P20000", email = "" } ]
 readme = "README.md"
 requires-python = ">=3.8"

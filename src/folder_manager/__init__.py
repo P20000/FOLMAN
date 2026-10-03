@@ -1,6 +1,6 @@
-"""Folder Manager Package.
+"""FOLMAN Package.
 
-A modular, lightweight GTK desktop application and file organization engine.
+A modular, lightweight GTK desktop application and automated file organization engine.
 """
 
 from folder_manager.constants import SortMode, CollisionPolicy, CATEGORY_MAPPINGS

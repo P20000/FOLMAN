@@ -21,7 +21,7 @@ class FolderManagerWindow(Gtk.Window):
     """Main application window with cached asynchronous folder sizes and live preview."""
 
     def __init__(self):
-        super().__init__(title="Folder Manager")
+        super().__init__(title="FOLMAN")
         self.set_default_size(1060, 700)
         self.set_position(Gtk.WindowPosition.CENTER)
         self.get_style_context().add_class("folder-manager")
@@ -55,8 +55,8 @@ class FolderManagerWindow(Gtk.Window):
         # GNOME Header Bar
         header = Gtk.HeaderBar()
         header.set_show_close_button(True)
-        header.props.title = "Folder Manager"
-        header.props.subtitle = "Automatic File Organizer"
+        header.props.title = "FOLMAN"
+        header.props.subtitle = "Fast Desktop File Organizer"
         self.set_titlebar(header)
 
         # Paned Layout: Left Sidebar (Places / Devices) | Right Main Panel
@@ -466,7 +466,7 @@ class FolderManagerWindow(Gtk.Window):
 
 
 def launch_gui():
-    """Launch the GTK 3 Folder Manager window."""
+    """Launch the GTK 3 FOLMAN window."""
     win = FolderManagerWindow()
     win.connect("destroy", Gtk.main_quit)
     win.show_all()

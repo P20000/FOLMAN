@@ -1,4 +1,4 @@
-"""Constants and category definitions for folder manager."""
+"""Constants and category definitions for FOLMAN."""
 
 from enum import Enum
 from typing import Dict, List, Set

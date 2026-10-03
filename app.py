@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Folder Manager - Entry Point.
+"""FOLMAN - Entry Point.
 
 Launches the GTK 3 desktop application by default, or runs in CLI mode.
 """
@@ -25,7 +25,7 @@ def run_cli(folder_path: str, mode: str, collision: str, recursive: bool, previe
     """Run folder sorting directly from the command line."""
     folder = Path(folder_path).resolve()
     if not folder.is_dir():
-        print(f"❌ Error: '{folder}' is not a valid directory.")
+        print(f"Error: '{folder}' is not a valid directory.")
         sys.exit(1)
 
     options = SortOptions(
@@ -34,20 +34,20 @@ def run_cli(folder_path: str, mode: str, collision: str, recursive: bool, previe
         recursive=recursive,
     )
 
-    print(f"🔍 Scanning '{folder}' [Mode: {mode}, Collision: {collision}]...")
+    print(f"Scanning '{folder}' [Mode: {mode}, Collision: {collision}]...")
     plan = plan_sorting(folder, options)
 
     if not plan.pending_moves:
-        print("✨ Folder is already organized! No files to move.")
+        print("Folder is already organized! No files to move.")
         return
 
-    print(f"\n📋 Planned operations ({plan.pending_count} files to move):")
+    print(f"\nPlanned operations ({plan.pending_count} files to move):")
     for op in plan.pending_moves:
         rel_target = op.target_path.relative_to(plan.root_folder)
-        print(f"  • {op.original_filename} → {rel_target}")
+        print(f"  - {op.original_filename} -> {rel_target}")
 
     if preview:
-        print("\n🔎 Dry-run preview complete. No files were moved.")
+        print("\nDry-run preview complete. No files were moved.")
         return
 
     confirm = input("\nProceed with moving files? [y/N]: ").strip().lower()
@@ -55,16 +55,16 @@ def run_cli(folder_path: str, mode: str, collision: str, recursive: bool, previe
         print("Aborted.")
         return
 
-    print("\n⚡ Executing...")
+    print("\nExecuting...")
     stats = execute_sorting(
         plan,
         progress_callback=lambda cur, tot, op: print(f"[{cur}/{tot}] {op.original_filename} -> {op.group_name}")
     )
-    print(f"\n🎯 Done! Moved: {stats.moved_count}, Skipped: {stats.skipped_count}, Failed: {stats.failed_count}")
+    print(f"\nDone! Moved: {stats.moved_count}, Skipped: {stats.skipped_count}, Failed: {stats.failed_count}")
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Folder Manager — Smart File Organizer")
+    parser = argparse.ArgumentParser(description="FOLMAN - Fast Desktop File Organizer")
     parser.add_argument("folder", nargs="?", help="Folder path to sort (CLI mode)")
     parser.add_argument("--cli", action="store_true", help="Force CLI mode")
     parser.add_argument("--mode", choices=["category", "extension", "date"], default="category", help="Sorting strategy")

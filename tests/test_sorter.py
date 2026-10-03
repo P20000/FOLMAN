@@ -14,7 +14,7 @@ from folder_manager.sorter import plan_sorting, execute_sorting, undo_sorting
 
 
 class TestSorter(unittest.TestCase):
-    """Test suite for Folder Manager sorting engine."""
+    """Test suite for FOLMAN sorting engine."""
 
     def setUp(self):
         self.temp_dir = tempfile.TemporaryDirectory()
