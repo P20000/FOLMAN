@@ -8,7 +8,7 @@ A modular, lightweight GTK desktop application and automated file organization u
 
 ## Features
 
-- **GTK Desktop Interface**: Intuitive, dark-themed GUI with live preview table, folder chooser, and progress tracking.
+- **Folder Tree Explorer**: Windows Explorer-style expandable sidebar tree with lazy loading of nested directories and quick location bookmarks.
 - **Multiple Organization Modes**:
   - **By Category**: Organizes files into smart semantic folders (`Documents/`, `Images/`, `Audio/`, `Video/`, `Archives/`, `Code/`, etc.).
   - **By Extension**: Direct uppercase extension folders (`PDF/`, `PNG/`, `PY/`, etc.).
@@ -60,5 +60,7 @@ This project strictly enforces:
   - `src/folder_manager/constants.py`: Category maps and enums.
   - `src/folder_manager/models.py`: Data models (`SortPlan`, `FileOperation`, `SortOptions`, `SortStats`).
   - `src/folder_manager/sorter.py`: Core scanning, planning, execution, and undo engine.
+  - `src/folder_manager/tree_explorer.py`: Expandable nested directory tree sidebar with lazy evaluation.
   - `src/folder_manager/styles.py`: GTK CSS dark theme tokens.
   - `src/folder_manager/ui.py`: Multi-threaded GTK 3 desktop application.
+

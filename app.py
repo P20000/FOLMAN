@@ -37,12 +37,12 @@ def run_cli(folder_path: str, mode: str, collision: str, recursive: bool, previe
     print(f"🔍 Scanning '{folder}' [Mode: {mode}, Collision: {collision}]...")
     plan = plan_sorting(folder, options)
 
-    if not plan.operations:
+    if not plan.pending_moves:
         print("✨ Folder is already organized! No files to move.")
         return
 
-    print(f"\n📋 Planned operations ({plan.total_files} files):")
-    for op in plan.operations:
+    print(f"\n📋 Planned operations ({plan.pending_count} files to move):")
+    for op in plan.pending_moves:
         rel_target = op.target_path.relative_to(plan.root_folder)
         print(f"  • {op.original_filename} → {rel_target}")
 
