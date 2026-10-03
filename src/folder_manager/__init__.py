@@ -1,19 +1,32 @@
-"""folder_manager package
+"""Folder Manager Package.
 
-Small utility to manage folders — starter module.
+A modular, lightweight GTK desktop application and file organization engine.
 """
 
-__all__ = ["mkdir_if_missing"]
+from folder_manager.constants import SortMode, CollisionPolicy, CATEGORY_MAPPINGS
+from folder_manager.models import SortOptions, FileOperation, SortPlan, SortStats
+from folder_manager.sorter import plan_sorting, execute_sorting, undo_sorting
+from folder_manager.ui import launch_gui
 
-import os
+__all__ = [
+    "SortMode",
+    "CollisionPolicy",
+    "CATEGORY_MAPPINGS",
+    "SortOptions",
+    "FileOperation",
+    "SortPlan",
+    "SortStats",
+    "plan_sorting",
+    "execute_sorting",
+    "undo_sorting",
+    "launch_gui",
+    "mkdir_if_missing",
+]
 
 
 def mkdir_if_missing(path: str) -> bool:
-    """Create directory `path` if it doesn't exist.
-
-    Returns True if directory was created, False if it already existed.
-    Raises OSError on failure.
-    """
+    """Create directory `path` if it doesn't exist."""
+    import os
     if os.path.isdir(path):
         return False
     os.makedirs(path, exist_ok=True)

@@ -10,7 +10,11 @@ authors = [ { name = "P20000", email = "" } ]
 readme = "README.md"
 requires-python = ">=3.8"
 
+[project.optional-dependencies]
+test = ["pytest"]
+
 [tool.pytest.ini_options]
 minversion = "6.0"
 addopts = "-q"
 testpaths = ["tests"]
+
